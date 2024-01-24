@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Shop.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,11 @@ namespace Shop.Application.Common.Interfaces
 {
     public interface IShopDbContext
     {
-        public DbSet<Address> Addresses { get; }
-
-        public DbSet<Student> Students { get; }
-
-        public DbSet<Teacher> Teachers { get; }
-
-        public DbSet<Course> Courses { get; }
-
+        public DbSet<UserAddress> UserAddresses { get; }
+        public DbSet<ShoppingSession> ShoppingSessions { get; }
+        public DbSet<Product> Products { get; }
+        public DbSet<Category> Categories { get; }
+        public DbSet<CartItem> CartItems { get; }
         public Task<int> SaveChangesAsync();
     }
 }
