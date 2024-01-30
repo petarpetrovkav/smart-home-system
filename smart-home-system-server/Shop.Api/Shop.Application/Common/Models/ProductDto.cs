@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Shop.Entities;
 
-namespace Shop.Application.Common.Models
-{
-    public record ProductDto(string name);
- 
-}
+namespace Shop.Application.Common.Models;
+
+public record ProductDto(int ProductId, int ProductCategoryId, string ProductName, string Description,
+                         int Price, int StockQuantity, string ImageUrl, ProductCategory ProductCategory);

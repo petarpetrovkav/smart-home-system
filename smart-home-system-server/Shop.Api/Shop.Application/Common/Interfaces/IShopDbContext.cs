@@ -1,21 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shop.Application.Common.Interfaces
 {
     public interface IShopDbContext
     {
-        public DbSet<UserAddress> UserAddresses { get; }
-        public DbSet<ShoppingSession> ShoppingSessions { get; }
+        public DbSet<Address> UserAddresses { get; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; }
         public DbSet<Product> Products { get; }
-        public DbSet<Category> Categories { get; }
+        public DbSet<ProductCategory> Categories { get; }
         public DbSet<CartItem> CartItems { get; }
+        public DbSet<Order> Orders { get; }
+        public DbSet<OrderItem> OrderItems { get; }
+
         public Task<int> SaveChangesAsync();
+
     }
 }

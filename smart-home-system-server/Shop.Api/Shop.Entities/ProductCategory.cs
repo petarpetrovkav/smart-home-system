@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shop.Entities
 {
-    public class Category : BaseInformation
+    public class ProductCategory : BaseInformation
     {
-        public int Id { get; set; }
+        public int ProductCategoryId { get; set; }
         public string? Name { get; set; }
         public string? Desc { get; set; }
         public ICollection<Product> Products { get; set; } = null!;

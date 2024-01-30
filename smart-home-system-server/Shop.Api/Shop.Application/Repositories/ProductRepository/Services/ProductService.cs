@@ -1,38 +1,55 @@
-﻿using Shop.Application.Common.Models;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Shop.Application.Common.Interfaces;
+using Shop.Application.Common.Models;
 using Shop.Application.Repositories.ProductRepository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shop.Entities;
 
 namespace Shop.Application.Repositories.ProductRepository.Services
 {
     public class ProductService : IProductService
     {
-        public Task<string> Add(ProductDto entity, string Id)
+        private readonly IShopDbContext _dbContext;
+        private readonly IMapper _mapper;
+
+        public ProductService(IShopDbContext dbContext, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+            _mapper = mapper;
         }
 
-        public Task<string> Delete(Guid id)
+        public async Task<ProductDto> Get(int productId)
         {
-            throw new NotImplementedException();
+            Product product = await _dbContext.Products.FindAsync(productId);
+            return _mapper.Map<Product, ProductDto>(product);
         }
 
-        public Task<ProductDto> Get(Guid id)
+        public async Task<List<ProductDto>> GetAll()
         {
-            throw new NotImplementedException();
+            List<Product> dbProducts = await _dbContext.Products.ToListAsync();
+            List<ProductDto> productDtos = new();
+
+            foreach (Product item in dbProducts)
+            {
+                ProductDto productDto = _mapper.Map<Product, ProductDto>(item);
+                productDtos.Add(productDto);
+            }
+
+            return productDtos;
         }
 
-        public Task<List<ProductDto>> GetAll()
+        public async Task<List<ProductDto>> GetAllProductByCategory(int productCategoryId)
         {
-            throw new NotImplementedException();
-        }
+            List<Product> dbProducts = await _dbContext.Products.Where(product => product.ProductCategoryId == productCategoryId).ToListAsync();
+            List<ProductDto> productDtos = new();
 
-        public Task<string> Update(ProductDto entity)
-        {
-            throw new NotImplementedException();
+            foreach (Product item in dbProducts)
+            {
+                ProductDto productDto = _mapper.Map<Product, ProductDto>(item);
+                productDtos.Add(productDto);
+            }
+
+            return productDtos;
         }
     }
 }

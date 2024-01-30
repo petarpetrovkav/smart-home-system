@@ -16,7 +16,9 @@ namespace Shop.Application.Common.Mappers
             {
                 Country = registerModel.Country,
                 Email = registerModel.Email,
-                UserName = registerModel.Username
+                UserName = registerModel.Username,
+                FirstName = registerModel.FirstName,
+                LastName = registerModel.LastName,
             };
 
         }

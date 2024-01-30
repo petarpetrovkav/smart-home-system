@@ -1,14 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Shop.Entities;
-using Shop.Application.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using System.Net;
-using Microsoft.AspNetCore.Hosting.Server;
+using Shop.Application.Common.Interfaces;
+using Shop.Entities;
 
 namespace Shop.Infrastructure.DataLayer
 {
@@ -26,12 +19,13 @@ namespace Shop.Infrastructure.DataLayer
             }
         }
 
-        public DbSet<UserAddress> UserAddresses => Set<UserAddress>();
-        public DbSet<ShoppingSession> ShoppingSessions => Set<ShoppingSession>();
+        public DbSet<Address> UserAddresses => Set<Address>();
+        public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
         public DbSet<Product> Products => Set<Product>();
-        public DbSet<Category> Categories => Set<Category>();
+        public DbSet<ProductCategory> Categories => Set<ProductCategory>();
         public DbSet<CartItem> CartItems => Set<CartItem>();
-
+        public DbSet<Order> Orders { get; }
+        public DbSet<OrderItem> OrderItems { get; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

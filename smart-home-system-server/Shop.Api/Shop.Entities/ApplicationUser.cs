@@ -10,9 +10,12 @@ namespace Shop.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        [StringLength(50)]
         public string Country { get; set; } = null!;
-        public int UserAddressId { get; set; }
-        public UserAddress? UserAddress { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public ICollection<Address>? Address { get; set; }
+        public ICollection<ShoppingCart>? ShoppingCarts { get; set; }
+        public ICollection<Order>? Orders { get; set; }
+
     }
 }

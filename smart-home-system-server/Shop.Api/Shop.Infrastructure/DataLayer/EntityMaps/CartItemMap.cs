@@ -1,24 +1,34 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Shop.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shop.Infrastructure.DataLayer.EntityMaps
 {
     public class CartItemMap : IEntityTypeConfiguration<CartItem>
     {
-        public void Configure(EntityTypeBuilder<CartItem> builder)
+        public void Configure(EntityTypeBuilder<CartItem> entity)
         {
-            builder.ToTable(nameof(CartItem));
+            entity.ToTable(nameof(CartItem));
 
-            builder.Property(d => d.Id).HasColumnOrder(1);
-            builder.Property(d => d.ProductId).HasColumnOrder(2);
-            builder.Property(d => d.Quantity).HasColumnOrder(3);
-            builder.Property(d => d.ShoppingSessionId).HasColumnOrder(4);
+            entity.Property(d => d.CartItemId).HasColumnOrder(1);
+            entity.Property(d => d.ShoppingCartId).HasColumnOrder(2);
+            entity.Property(d => d.ProductId).HasColumnOrder(3);
+            entity.Property(d => d.Quantity).HasColumnOrder(4);
+
+
+            CartItem[] cartItems = new CartItem[]
+            {
+                new CartItem
+                {
+                       CartItemId = 1,
+                       ProductId = 1,
+                       Quantity = 1,
+                       ShoppingCartId = 1,
+                },
+            };
+
+            entity.HasData(cartItems);
+
         }
     }
 }

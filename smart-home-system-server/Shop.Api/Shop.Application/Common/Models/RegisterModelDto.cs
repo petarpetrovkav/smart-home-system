@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace Shop.Application.Common.Models
 {
-    public record RegisterModelDto(string Username, string Password, string Country, string Email, string ConfirmPassword);
+    public record RegisterModelDto(string Username, string Password, string Country, 
+                                   string Email, string ConfirmPassword, string FirstName, string LastName);
 }

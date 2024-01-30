@@ -1,20 +1,28 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shop.Application.Common.Interfaces;
 using Shop.Application.Common.Models;
+using Shop.Application.Repositories.AddressRepository.Interface;
+using Shop.Application.Repositories.AddressRepository.Services;
+using Shop.Application.Repositories.CartRepository.Interface;
+using Shop.Application.Repositories.CartRepository.Services;
+using Shop.Application.Repositories.OrderRepository.Interface;
+using Shop.Application.Repositories.OrderRepository.Services;
+using Shop.Application.Repositories.ProductRepository.Interface;
+using Shop.Application.Repositories.ProductRepository.Services;
+using Shop.Entities;
 using Shop.Infrastructure.DataLayer;
 using Shop.Infrastructure.Identity;
-using Shop.Entities;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers(x => x.Filters.Add(new AuthorizeFilter()));
+// x => x.Filters.Add(new AuthorizeFilter())
+builder.Services.AddControllers();
 
 
 builder.Services.AddDbContext<ShopDbContext>(options =>
@@ -38,11 +46,37 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 builder.Services.AddScoped<IIdentityService, IdentityService>();
 builder.Services.AddScoped<IShopDbContext, ShopDbContext>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IAddressService, AddressService>();
+builder.Services.AddScoped<ICartService, CartServices>();
+builder.Services.AddScoped<IOrder, OrderService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.CreateMap<Product, ProductDto>();
+    mc.CreateMap<ProductDto, Product>();
+    mc.CreateMap<Address, AddressDto>();
+    mc.CreateMap<AddressDto, Address>();
+    /*    mc.CreateMap<CartItem, CartItemDto>();
+        mc.CreateMap<CartItemDto, CartItem>();*/
+    mc.CreateMap<Order, OrderDto>();
+    mc.CreateMap<OrderDto, Order>();
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 
 builder.Services.AddAuthentication(option =>
@@ -50,7 +84,8 @@ builder.Services.AddAuthentication(option =>
     option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;    //Ova i netreba
                                                                                //Ova go koristime koga nekoja druga authentication primer oauth 2.0 
-}).AddJwtBearer(x => {
+}).AddJwtBearer(x =>
+{
     x.RequireHttpsMetadata = true;
     x.SaveToken = true;
     x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -74,7 +109,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseSession();
 app.UseRouting();
 
 

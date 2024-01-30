@@ -8,7 +8,7 @@ namespace Shop.Application.Common.Interfaces
 {
     public interface IServiceRepository<T>
     {
-        Task<T> Get(Guid id);
+        Task<T> Get(int id);
         Task<List<T>> GetAll();
         Task<string> Delete(Guid id);
         Task<string> Add(T entity, string Id);

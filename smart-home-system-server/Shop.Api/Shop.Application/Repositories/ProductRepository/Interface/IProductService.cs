@@ -1,15 +1,10 @@
-﻿using Shop.Application.Common.Interfaces;
-using Shop.Application.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Shop.Application.Common.Models;
 
-namespace Shop.Application.Repositories.ProductRepository.Interface
+namespace Shop.Application.Repositories.ProductRepository.Interface;
+
+public interface IProductService // : IServiceRepository<ProductDto>
 {
-    public interface IProductService : IServiceRepository<ProductDto>
-    {
-
-    }
+    Task<ProductDto> Get(int id);
+    Task<List<ProductDto>> GetAll();
+    Task<List<ProductDto>> GetAllProdocutByCategory(int id);
 }
