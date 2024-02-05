@@ -1,6 +1,5 @@
 import './Home.scss'
 import arrow_icon from '../../assets/images/arrow.png';
-import home_image from '../../assets/images/home_img/Homepage-HiveGotThis-Desktop.jpg';
 import NewProduct from "../../components/NewProduct/NewProduct";
 
 export default function Home() {

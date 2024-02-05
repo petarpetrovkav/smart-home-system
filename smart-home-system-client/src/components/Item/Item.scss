@@ -3,6 +3,12 @@
 .item{
     width: 350px;
 
+  .img{
+    width: 320px !important;
+    height: 233px !important;
+    border-radius: 12px !important;
+  }
+
   .item p{
     margin: 6px 0;
   }

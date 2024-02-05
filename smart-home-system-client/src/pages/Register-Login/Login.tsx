@@ -15,10 +15,6 @@ export default function Login() {
                         </div>
                         <button>Continue</button>
                         <p className="login-signup-login">Already have an account?<span>Login here</span></p>
-                        <div className="login-signup-agree">
-                            <input type="checkbox" name='' id=''/>
-                            <p>By continuing, i agree to the terms of use & privacy policy.</p>
-                        </div>
                     </div>
                 </div>
             </div>
