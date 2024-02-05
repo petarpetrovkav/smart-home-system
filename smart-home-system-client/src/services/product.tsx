@@ -6,16 +6,8 @@ const getAllProducts = async() => {
     return data;
 }
 
-const getAllProducts1 = async() => {
-    const response = await fetch(`https://fakestoreapi.com/products`);
-    const data = await response.json();
-    return data;
-}
-
-
 const ProductService = {
     getAllProducts,
-    getAllProducts1
 }
 
 export default ProductService;
