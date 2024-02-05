@@ -1,32 +1,35 @@
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {Link, NavLink} from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import './Header.scss'
-import logo from './../../assets/images/smart-home.png';
+import logo from './../../assets/images/logo.png';
 import search from './../../assets/images/search.svg';
-import shoppingCart from './../../assets/images/shopping-cart.svg';
+import cartIcon from './../../assets/images/cart_icon.png';
 import loginIcon from './../../assets/images/userLogin.svg';
 
 export default function Header() {
+
+    const [menu,setMenu] = useState("home");
+
     return (
         <>
             <header>
-                <div className="logo">
-                    <img src={logo} alt="logo"/>
-                </div>
-
-                <nav>
-                    <NavLink to='/products' className="nav-link">Products</NavLink>
-                    <NavLink to='/contact-us' className="nav-link">Contact</NavLink>
-                    <NavLink to='/order' className="nav-link">Order</NavLink>
-                </nav>
-
-                <div className="menu-icons">
-                    <NavLink to='/search'><img id="search" src={search} alt="search"/></NavLink>
-                    <NavLink to='/login'><img id="login" src={loginIcon} alt="login"/></NavLink>
-                    <NavLink to='/card'><img id="shoppingCart" src={shoppingCart} alt="cart"/></NavLink>
+                <div className='navbar'>
+                    <div className='nav-logo'>
+                        <img src={logo} alt={logo}/>
+                        <p>SHOPPER</p>
+                    </div>
+                    <ul className='nav-menu'>
+                        <li onClick={()=>{setMenu("home")}}><Link to='/' style={{ textDecoration: "none"}}> Home </Link> {menu==="home"?<hr/>:<></>} </li>
+                        <li onClick={()=>{setMenu("products")}}><Link to='/products' style={{ textDecoration: "none"}}> Product </Link> {menu==="products"?<hr/>:<></>} </li>
+                        <li onClick={()=>{setMenu("order")}}><Link to='/order' style={{ textDecoration: "none"}}> Order  </Link>{menu==="order"?<hr/>:<></>}</li>
+                    </ul>
+                    <div className='nav-login-cart'>
+                        <Link to='/login'> <button>Login</button> </Link>
+                        <Link to='/card'> <img src={cartIcon} alt="login"/> </Link>
+                        <div className="nav-cart-count">0</div>
+                    </div>
                 </div>
             </header>
-
         </>);
 }
