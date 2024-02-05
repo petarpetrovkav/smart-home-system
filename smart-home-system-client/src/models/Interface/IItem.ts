@@ -1,9 +1,12 @@
 interface IItem {
-    id:number,
-    name: string,
-    image: string,
-    new_price: number,
-    old_price: number
+    productId:number,
+    productName: string,
+    stockQuantity: string,
+    productCategoryId: number,
+    productCategory: string,
+    price: number,
+    imageUrl: string,
+    description: string
 }
 
 export default IItem;

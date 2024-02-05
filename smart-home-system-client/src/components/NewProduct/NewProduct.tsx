@@ -1,11 +1,23 @@
-import React from "react";
-import IItem from '../../models/Interface/IItem';
+import React, {useEffect, useState} from "react";
 import './NewProduct.scss';
-/*import data_product from "../../assets/images/data";*/
-import data_product from "../../assets/images/new_collections";
+import IItem from "../../models/Interface/IItem";
+import ProductService from "../../services/product";
 import Item from "../Item/Item";
 
 export default function NewProduct() {
+
+    const [products, setProducts] = useState<IItem[]>([]);
+
+
+    useEffect(() => {
+        getProducts();
+    }, []);
+
+    const getProducts = async () => {
+        const data = await ProductService.getAllProducts();
+        setProducts(data);
+    }
+
     return (
         <>
             <div className="new-product">
@@ -14,9 +26,10 @@ export default function NewProduct() {
                     <hr/>
                     <div className="collections">      {/*new-products*/}
                         {
-                            data_product.map((item,index)=>{
-                            return <Item item={{id: item.id, name: item.name, image: item.image, new_price: item.new_price, old_price: item.old_price}}/>
-                        })}
+                            products.map((product,index)=>{
+                                return <Item item={{productId: product.productId, productName: product.productName, imageUrl: product.imageUrl, price: product.price, productCategory: product.productCategory, productCategoryId: product.productCategoryId, description: product.description, stockQuantity: product.stockQuantity}}/>
+                            })
+                        }
                     </div>
                 </div>
             </div>

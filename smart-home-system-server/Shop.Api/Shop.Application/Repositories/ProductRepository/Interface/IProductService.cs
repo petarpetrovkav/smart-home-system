@@ -6,5 +6,5 @@ public interface IProductService // : IServiceRepository<ProductDto>
 {
     Task<ProductDto> Get(int id);
     Task<List<ProductDto>> GetAll();
-    Task<List<ProductDto>> GetAllProdocutByCategory(int id);
+    Task<List<ProductDto>> GetAllProductByCategory(int id);
 }
