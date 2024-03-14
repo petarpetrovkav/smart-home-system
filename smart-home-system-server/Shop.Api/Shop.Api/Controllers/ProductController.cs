@@ -35,7 +35,7 @@ namespace Shop.Api.Controllers
             return await _productService.GetAllProductByCategory(id);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("getProductById/{id}")]
         public async Task<ProductDto> GetById(int id)
         {
             return await _productService.Get(id);

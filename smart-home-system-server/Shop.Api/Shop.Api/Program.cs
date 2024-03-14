@@ -39,6 +39,16 @@ builder.Services.AddDbContext<ShopDbContext>(options =>
     }
 });
 
+builder.Services.AddCors(x =>
+{
+    x.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:7141");
+        policy.AllowAnyMethod();
+        policy.AllowAnyHeader();
+    });
+});
+
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ShopDbContext>();
@@ -76,6 +86,14 @@ var mapperConfig = new MapperConfiguration(mc =>
 });
 
 IMapper mapper = mapperConfig.CreateMapper();
+
+builder.Services.AddCors(options => options.AddPolicy("DefaultCorsPolicy", policy =>
+{
+    policy.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+}));
+
 builder.Services.AddSingleton(mapper);
 
 
@@ -112,6 +130,7 @@ app.UseHttpsRedirection();
 app.UseSession();
 app.UseRouting();
 
+app.UseCors("DefaultCorsPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();

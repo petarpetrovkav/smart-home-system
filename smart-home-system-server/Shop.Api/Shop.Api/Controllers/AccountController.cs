@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Common.Interfaces;
 using Shop.Application.Common.Models;
@@ -37,7 +36,7 @@ namespace Shop.Api.Controllers
         {
             var resultToken = await _service.SignIn(signInModel);
 
-            if (string.IsNullOrEmpty(resultToken))
+            if (resultToken is null)
             {
                 return BadRequest();
             }

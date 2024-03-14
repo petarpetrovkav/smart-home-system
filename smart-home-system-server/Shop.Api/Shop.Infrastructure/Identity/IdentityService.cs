@@ -6,13 +6,9 @@ using Shop.Application.Common.Interfaces;
 using Shop.Application.Common.Mappers;
 using Shop.Application.Common.Models;
 using Shop.Entities;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Shop.Infrastructure.Identity
 {
@@ -30,6 +26,8 @@ namespace Shop.Infrastructure.Identity
             _configuration = configuration;
 
         }
+
+
         public async Task<ApplicationUser> GetUserByUserName(string userName)
         {
             return await _userManager.FindByNameAsync(userName);
@@ -62,7 +60,8 @@ namespace Shop.Infrastructure.Identity
 
                 return new ResponseModel()
                 {
-                    isValid = true
+                    isValid = true,
+                    ResponseMessage = "You have successfully registered"
                 };
             }
             else
@@ -75,7 +74,7 @@ namespace Shop.Infrastructure.Identity
             }
         }
 
-        public async Task<string> SignIn(SignInModelDto model)
+        public async Task<SignInResponse> SignIn(SignInModelDto model)
         {
             //Validation method for signIn
             var signInResult = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
@@ -93,18 +92,25 @@ namespace Shop.Infrastructure.Identity
 
                 var signinKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("SecretKey")));
 
+
                 var signinCredentials = new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken(signingCredentials: signinCredentials, expires: DateTime.UtcNow.AddHours(1), claims: claims);
 
-                return new JwtSecurityTokenHandler().WriteToken(token);
-
-
+                return new SignInResponse
+                {
+                    Token = new JwtSecurityTokenHandler().WriteToken(token),
+                    Username = user.UserName,
+                };
             }
 
             else
             {
-                return String.Empty;
+                return new SignInResponse
+                {
+                    Token = string.Empty,
+                    Username = string.Empty
+                };
             }
         }
 
@@ -147,14 +153,14 @@ namespace Shop.Infrastructure.Identity
                 };
             }
 
-            if (model.Password != model.ConfirmPassword)
-            {
-                return new ResponseModel()
-                {
-                    isValid = false,
-                    ResponseMessage = "Password and Confirm Password doesnt match"
-                };
-            }
+            //if (model.Password != model.ConfirmPassword)
+            //{
+            //    return new ResponseModel()
+            //    {
+            //        isValid = false,
+            //        ResponseMessage = "Password and Confirm Password doesnt match"
+            //    };
+            //}
 
             return new ResponseModel()
             {

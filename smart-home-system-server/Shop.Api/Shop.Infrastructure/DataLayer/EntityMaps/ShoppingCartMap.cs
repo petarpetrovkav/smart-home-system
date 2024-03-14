@@ -11,6 +11,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             entity.ToTable(nameof(ShoppingCart));
             entity.Property(d => d.ShoppingCartId).HasColumnOrder(1);
             entity.Property(d => d.CreatedAt).HasColumnOrder(2).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("(GetDate())");
+            entity.Property(d => d.UpdatedAt).HasColumnOrder(3);
+
 
 
             entity.HasOne(shoppingCart => shoppingCart.User)

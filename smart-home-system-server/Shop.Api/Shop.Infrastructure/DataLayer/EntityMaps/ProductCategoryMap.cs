@@ -22,14 +22,17 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 new ProductCategory
                 {
                     ProductCategoryId = 1,
-                    Name = "Heating",
-                    Desc="asdddd",
+                    Name = "Smart Heating",
                 },
                 new ProductCategory
                 {
                     ProductCategoryId = 2,
-                    Name = "Lighting",
-                    Desc="asdddd",
+                    Name = "Smart Home",
+                },
+                new ProductCategory
+                {
+                    ProductCategoryId = 3,
+                    Name = "EV Charging",
                 },
             };
 

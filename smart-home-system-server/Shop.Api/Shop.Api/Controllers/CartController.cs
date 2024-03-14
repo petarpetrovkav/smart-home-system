@@ -20,21 +20,49 @@ namespace Shop.Api.Controllers
             _userManager = userManager;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddItem(CartItemDto cartItemModel)
+        /*        [HttpGet("getAllByUser")]
+                public async Task<IEnumerable<>>*/
+
+        [HttpPost("AddItem")]
+        public async Task<string> AddItem([FromBody] CartItemDto cartItemModel)
         {
-            /*  ApplicationUser currentUser = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);
-              var user = currentUser == null ? Guid.Empty.ToString() : currentUser.Id;
-  */
-            /* var registered = await _cartService.AddItem(cartItemModel, user);*/
-            var registered = await _cartService.AddItem(cartItemModel);
+            /* ApplicationUser currentUser = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);*/
+            /* string user = currentUser == null ? Guid.Empty.ToString() : currentUser.Id;*/
+            string user = "fccba221-bb03-4a88-9acd-bdfd4c1ac2fd";
 
-            if (!registered.isValid)
-            {
-                return BadRequest(registered.ResponseMessage);
-            }
+            string response = await _cartService.Add(cartItemModel, user);
 
-            return Ok(registered);
+            return response;
+        }
+
+        [HttpPut("update")]
+        public async Task<string> Put([FromBody] CartItemDto cartItemModel)
+        {
+            string user = "fccba221-bb03-4a88-9acd-bdfd4c1ac2fd";
+            string response = await _cartService.Update(cartItemModel, user);
+
+            return response;
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<string> Delete(int id)
+        {
+            string user = "fccba221-bb03-4a88-9acd-bdfd4c1ac2fd";
+            var response = await _cartService.Delete(id, user);
+
+            return response;
+        }
+
+        [HttpGet]
+        public async Task<string> GetAllProductByShoppingCart()
+        /*public async Task<List<CartItemDto>> GetAllProductByShoppingCart()*/
+        {
+            /*ApplicationUser user = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);*/
+            string user = "ae695d80-3432-4976-ad89-2e71fc8eb798";
+            /* List<CartItemDto> cartDto = await _cartService.GetAllProductByShoppingCart(user);*/
+            string cartDto = await _cartService.GetAllProductByShoppingCart(user);
+            return cartDto;
+
         }
     }
 }
