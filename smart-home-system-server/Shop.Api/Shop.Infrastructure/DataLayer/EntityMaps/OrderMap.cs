@@ -10,7 +10,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
         {
             entity.ToTable(nameof(Order));
 
-            entity.Property(d => d.OrderId).HasColumnOrder(1);
+            entity.Property(d => d.Id).HasColumnOrder(1);
             entity.Property(d => d.AddressId).HasColumnOrder(3);
             entity.Property(d => d.PaymentMethod).HasColumnOrder(4).HasMaxLength(20);
 
@@ -20,7 +20,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             entity.Property(d => d.OrderDate).HasColumnOrder(6).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("(GetDate())");
             entity.Property(d => d.TotalCost).HasColumnOrder(7);
 
-            Order[] orders = new Order[]
+    /*        Order[] orders = new Order[]
             {
                 new Order
                 {
@@ -29,7 +29,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                     PaymentMethod = "test",
                     OrderStatus = OrderStatus.Pending,
                     TotalCost = 160,
-                    UserId = "1",
+                    UserId = Guid.Parse("0a02b5f0-9916-4774-915e-b8e2c8c6bed8")
                 },
                 new Order
                 {
@@ -38,11 +38,11 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                     PaymentMethod = "test",
                     OrderStatus = OrderStatus.Processing,
                     TotalCost = 1500,
-                    UserId = "1",
+                    UserId = Guid.Parse("0a02b5f0-9916-4774-915e-b8e2c8c6bed8")
                 },
             };
 
-            entity.HasData(orders);
+            entity.HasData(orders);*/
         }
     }
 }

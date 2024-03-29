@@ -10,7 +10,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
         {
             ApplicationUser user = new ApplicationUser()
             {
-                Id = "1",
+                Id = "392e10a6-af25-47bc-a99b-eb73a2f81b65",
                 Country = "Macedonia",
                 FirstName = "Petar",
                 LastName = "Petrov",

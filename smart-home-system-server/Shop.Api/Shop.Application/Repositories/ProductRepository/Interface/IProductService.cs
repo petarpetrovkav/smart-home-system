@@ -4,7 +4,7 @@ namespace Shop.Application.Repositories.ProductRepository.Interface;
 
 public interface IProductService // : IServiceRepository<ProductDto>
 {
-    Task<ProductDto> Get(int id);
+    Task<ProductDto> Get(string id);
     Task<List<ProductDto>> GetAll();
-    Task<List<ProductDto>> GetAllProductByCategory(int id);
+    Task<List<ProductDto>> GetAllProductByCategory(string id);
 }

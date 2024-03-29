@@ -2,9 +2,9 @@
 {
     public class ProductCategory : BaseInformation
     {
-        public int ProductCategoryId { get; set; }
+        public Guid ProductCategoryId { get; set; }
         public string Name { get; set; }
         public string? Desc { get; set; }
-        public ICollection<Product> Products { get; set; } = null!;
+        public virtual ICollection<Product> Products { get; set; } = null!;
     }
 }

@@ -15,7 +15,7 @@ namespace Shop.Infrastructure.DataLayer
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-C37NTHQ\\SQLEXPRESS;Database=SmartHomeSystemShop;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-NOBPBIS\\SQLEXPRESS;Database=SmartHomeSystemShop;Trusted_Connection=True;");
             }
         }
 

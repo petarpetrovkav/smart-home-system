@@ -30,13 +30,13 @@ namespace Shop.Api.Controllers
         }
 
         [HttpGet("getAllProductByCategory/{id}")]
-        public async Task<IEnumerable<ProductDto>> GetAllProductByCategory(int id)
+        public async Task<IEnumerable<ProductDto>> GetAllProductByCategory(string id)
         {
             return await _productService.GetAllProductByCategory(id);
         }
 
         [HttpGet("getProductById/{id}")]
-        public async Task<ProductDto> GetById(int id)
+        public async Task<ProductDto> GetById(string id)
         {
             return await _productService.Get(id);
         }

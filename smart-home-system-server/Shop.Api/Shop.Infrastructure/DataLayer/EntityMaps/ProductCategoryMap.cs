@@ -21,17 +21,17 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             {
                 new ProductCategory
                 {
-                    ProductCategoryId = 1,
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     Name = "Smart Heating",
                 },
                 new ProductCategory
                 {
-                    ProductCategoryId = 2,
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     Name = "Smart Home",
                 },
                 new ProductCategory
                 {
-                    ProductCategoryId = 3,
+                    ProductCategoryId = Guid.Parse("1745e8de-2eac-4ccb-b954-1d00435fe66c"),
                     Name = "EV Charging",
                 },
             };

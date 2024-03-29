@@ -7,9 +7,9 @@ namespace Shop.Entities
         public string? Country { get; set; } = null!;
         public string? FirstName { get; set; } = null!;
         public string? LastName { get; set; } = null!;
-        public ICollection<Address>? Address { get; set; }
-        public ICollection<ShoppingCart>? ShoppingCarts { get; set; }
-        public ICollection<Order>? Orders { get; set; }
+        public virtual ICollection<Address>? Address { get; set; }
+        public virtual ICollection<ShoppingCart>? ShoppingCarts { get; set; }
+        public virtual ICollection<Order>? Orders { get; set; }
 
     }
 }

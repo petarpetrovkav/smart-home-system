@@ -1,13 +1,14 @@
-﻿using Shop.Application.Common.Models;
+﻿using Shop.Application.Common.Helpers;
+using Shop.Application.Common.Models;
 
 namespace Shop.Application.Repositories.CartRepository.Interface;
 
 public interface ICartService
 {
-    Task<string> Add(CartItemDto model, string user);
-    Task<string> Delete(int ProductId, string user);
-    Task<string> Update(CartItemDto model, string user);
+    Task<ResponseModel> Add(CartItemDto model, string user);
+    Task<ResponseModel> Delete(string ProductId, string ShoppingCartId); /*string user*/
+    Task<ResponseModel> Update(CartItemDto model, string user);
     /*Task<List<CartItemDto>> GetAllProductByShoppingCart(CartItemDto model, string user);*/
-    Task<string> GetAllProductByShoppingCart(string user);
+    Task<List<CartProductDto>> GetAllProductByShoppingCart(string user);
 
 }

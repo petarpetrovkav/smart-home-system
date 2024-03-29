@@ -18,9 +18,9 @@ namespace Shop.Application.Repositories.ProductRepository.Services
             _mapper = mapper;
         }
 
-        public async Task<ProductDto> Get(int productId)
+        public async Task<ProductDto> Get(string productId)
         {
-            Product product = await _dbContext.Products.FindAsync(productId);
+            Product product = await _dbContext.Products.FindAsync(Guid.Parse(productId));
             return _mapper.Map<Product, ProductDto>(product);
         }
 
@@ -38,9 +38,9 @@ namespace Shop.Application.Repositories.ProductRepository.Services
             return productDtos;
         }
 
-        public async Task<List<ProductDto>> GetAllProductByCategory(int productCategoryId)
+        public async Task<List<ProductDto>> GetAllProductByCategory(string productCategoryId)
         {
-            List<Product> dbProducts = await _dbContext.Products.Where(product => product.ProductCategoryId == productCategoryId).ToListAsync();
+            List<Product> dbProducts = await _dbContext.Products.Where(product => product.ProductCategoryId == Guid.Parse(productCategoryId)).ToListAsync();
             List<ProductDto> productDtos = new();
 
             foreach (Product item in dbProducts)

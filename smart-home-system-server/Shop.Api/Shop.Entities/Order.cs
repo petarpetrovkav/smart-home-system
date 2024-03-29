@@ -2,14 +2,14 @@
 
 public class Order : BaseEntity
 {
-    public int OrderId { get; set; }
-    public int AddressId { get; set; }
+   /* public Guid OrderId { get; set; }*/
+    public Guid AddressId { get; set; }
     public string? PaymentMethod { get; set; }
     public OrderStatus OrderStatus { get; set; }     //varchar 20
     public DateTime OrderDate { get; set; }
     public int TotalCost { get; set; }
-    public Address? Addresses { get; set; }
-    public ICollection<OrderItem>? OrderItems { get; set; }
+    public virtual Address? Addresses { get; set; }
+    public virtual ICollection<OrderItem>? OrderItems { get; set; }
 }
 
 public enum OrderStatus

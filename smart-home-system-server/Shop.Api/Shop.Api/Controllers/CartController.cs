@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Shop.Application.Common.Helpers;
 using Shop.Application.Common.Models;
 using Shop.Application.Repositories.CartRepository.Interface;
 using Shop.Application.Repositories.CartRepository.Services;
@@ -24,45 +25,34 @@ namespace Shop.Api.Controllers
                 public async Task<IEnumerable<>>*/
 
         [HttpPost("AddItem")]
-        public async Task<string> AddItem([FromBody] CartItemDto cartItemModel)
+        public async Task<ResponseModel> AddItem([FromBody] CartItemDto cartItemModel)
         {
             /* ApplicationUser currentUser = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);*/
             /* string user = currentUser == null ? Guid.Empty.ToString() : currentUser.Id;*/
-            string user = "fccba221-bb03-4a88-9acd-bdfd4c1ac2fd";
-
-            string response = await _cartService.Add(cartItemModel, user);
-
-            return response;
+            string user = "f171b554-c344-4233-8a6a-43f4ce5f2197";
+            return await _cartService.Add(cartItemModel, user);
         }
 
-        [HttpPut("update")]
-        public async Task<string> Put([FromBody] CartItemDto cartItemModel)
+        [HttpPut("Update")]
+        public async Task<ResponseModel> Put([FromBody] CartItemDto cartItemModel)
         {
-            string user = "fccba221-bb03-4a88-9acd-bdfd4c1ac2fd";
-            string response = await _cartService.Update(cartItemModel, user);
-
-            return response;
+            string user = "f171b554-c344-4233-8a6a-43f4ce5f2197";
+            return await _cartService.Update(cartItemModel, user);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<string> Delete(int id)
+        [HttpDelete("Delete")]
+        public async Task<ResponseModel> Delete([FromBody] CartItemDto cartItemModel)     /*, int shoppingCartId*/
         {
-            string user = "fccba221-bb03-4a88-9acd-bdfd4c1ac2fd";
-            var response = await _cartService.Delete(id, user);
-
-            return response;
+            string user = "f171b554-c344-4233-8a6a-43f4ce5f2197";
+            return await _cartService.Delete(cartItemModel.ProductId, cartItemModel.ShoppingCartId);
         }
 
-        [HttpGet]
-        public async Task<string> GetAllProductByShoppingCart()
-        /*public async Task<List<CartItemDto>> GetAllProductByShoppingCart()*/
+        [HttpGet("GetAllProductByShoppingCart")]
+        public async Task<IEnumerable<CartProductDto>> GetAllProductByShoppingCart()
         {
             /*ApplicationUser user = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);*/
-            string user = "ae695d80-3432-4976-ad89-2e71fc8eb798";
-            /* List<CartItemDto> cartDto = await _cartService.GetAllProductByShoppingCart(user);*/
-            string cartDto = await _cartService.GetAllProductByShoppingCart(user);
-            return cartDto;
-
+            string user = "f171b554-c344-4233-8a6a-43f4ce5f2197";
+            return await _cartService.GetAllProductByShoppingCart(user);
         }
     }
 }

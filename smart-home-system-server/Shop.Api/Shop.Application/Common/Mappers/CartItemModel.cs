@@ -5,28 +5,22 @@ namespace Shop.Application.Common.Mappers;
 
 public static class CartItemModel
 {
-    public static CartItem ToCartItem(this CartItemDto CartItemDtoModel, int ShoppingCartId)
+    public static CartItem ToCartItem(this CartItemDto CartItemDtoModel, Guid ShoppingCartId)
     {
         return new CartItem()
         {
-            ProductId = CartItemDtoModel.ProductId,
-            /*ShoppingCartId = Int32.Parse(ShoppingCartId),*/
+            ProductId = Guid.Parse(CartItemDtoModel.ProductId),
             ShoppingCartId = ShoppingCartId,
             Quantity = CartItemDtoModel.Quantity,
-
         };
     }
 
-  /*  public static CartItemDto ToCartItemDto(this CartItem CartItem)
+    public static CartItemDto ToCartItemDto(this CartItem CartItem)
     {
-
-        return new CartItemDto()
-        {
-            CartItemId = CartItem.CartItemId,
-            ShoppingCartId = CartItem.ShoppingCartId,
-            ProductId = CartItem.ProductId,
-            Quantity = CartItem.Quantity,
-            Products = null,
-        };
-    }*/
+        return new CartItemDto(
+            CartItem.ProductId.ToString(),
+            CartItem.Quantity,
+            CartItem.ShoppingCartId.ToString()
+        );
+    }
 }

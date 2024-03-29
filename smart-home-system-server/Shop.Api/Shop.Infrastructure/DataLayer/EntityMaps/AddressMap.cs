@@ -10,7 +10,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
         {
             entity.ToTable(nameof(Address));
 
-            entity.Property(d => d.AddressId).HasColumnOrder(1);
+            entity.Property(d => d.Id).HasColumnOrder(1);
             entity.Property(d => d.Street).HasColumnOrder(3).HasColumnType("varchar(50)");
             entity.Property(d => d.City).HasColumnOrder(4);
             entity.Property(d => d.PostalCode).HasColumnOrder(5);
@@ -25,21 +25,21 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             {
                 new Address
                 {
-                       AddressId = 1,
+                       Id = Guid.Parse("8a58c5f6-e9cb-4066-951d-f74a4d5c88d1"),
                        City = "Kavadarci",
                        Country = "Macedonia",
                        PostalCode = "1430",
                        Street = "Gorgi Sugare Br.90",
-                       UserId = "1"
+                       UserId = "392e10a6-af25-47bc-a99b-eb73a2f81b65"
                 },
                 new Address
                 {
-                       AddressId = 2,
+                       Id = Guid.Parse("d3db2f0c-19ee-4fb3-9ac4-475e2be5e47c"),
                        City = "Skopje",
                        Country = "Macedonia",
                        PostalCode = "1000",
                        Street = "Franklin Ruzvelt 50a 2/27",
-                       UserId = "1"
+                       UserId = "392e10a6-af25-47bc-a99b-eb73a2f81b65"
                 },
             };
 

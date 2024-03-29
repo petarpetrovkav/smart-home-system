@@ -8,7 +8,7 @@ using Shop.Entities;
 
 namespace Shop.Application.Repositories.OrderRepository.Services;
 
-public class OrderService : IOrder
+public class OrderService : IOrderService
 {
     private readonly IShopDbContext _dbContext;
     private readonly IMapper _mapper;
@@ -19,9 +19,37 @@ public class OrderService : IOrder
         _mapper = mapper;
     }
 
-    public async Task<ResponseModel> AddItem(OrderDto orderModel)
+    public async Task<ResponseModel> Add(OrderDto model, string user)
     {
-        List<OrderItem> orderItems = null;
+        /*  List<OrderItem> orderItems = null;*/
+  
+        Address address = _dbContext.UserAddresses.FirstOrDefault(sc => sc.UserId == user);
+   
+
+        try
+        {
+            Order order = OrderItemModel.ToOrder(model.TotalCost, address.Id, user);
+            _dbContext.Orders.Add(order);
+            await _dbContext.SaveChangesAsync();
+            return new ResponseModel()
+            {
+                isValid = true,
+                ResponseMessage = order.Id.ToString()
+            };
+        }
+        catch (Exception ex)
+        {
+            return new ResponseModel()
+            {
+                isValid = false,
+                ResponseMessage = ex.Message
+            };
+        }
+
+    }
+
+
+        /*List<OrderItem> orderItems = null;
 
         Order order = _mapper.Map<OrderDto, Order>(orderModel);
         _dbContext.Orders.Add(order);
@@ -48,6 +76,5 @@ public class OrderService : IOrder
         return new ResponseModel()
         {
             isValid = true
-        };
-    }
+        };*/
 }

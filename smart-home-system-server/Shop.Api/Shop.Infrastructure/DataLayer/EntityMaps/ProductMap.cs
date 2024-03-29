@@ -28,8 +28,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             {
                 new Product
                 {
-                    ProductId = 1,
-                    ProductCategoryId = 1,
+                    ProductId = Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     ProductName = "Hive Thermostat",
                     Description = "Save up to £200 a year¹ with our best-selling original. It’s got all you need to lower your bills and shrink your carbon footprint.",
                     Price = 119,
@@ -38,8 +38,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId = 2,
-                    ProductCategoryId = 1,
+                    ProductId = Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     ProductName = "Hive Thermostat Mini",
                     Description = "Save up to £200 a year¹ with our best-selling original. It’s got all you need to lower your bills and shrink your carbon footprint.",
                     Price = 79,
@@ -48,8 +48,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 3,
-                    ProductCategoryId = 1,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     ProductName = "Hive Heating Plus",
                     Description = "Supercharge your savings and shrink your carbon footprint with handy budgeting tools, 24/7 efficiency monitoring and personalised suggestions to help you use less energy every day.",
                     Price = 19,
@@ -58,8 +58,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 4,
-                    ProductCategoryId = 1,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     ProductName = "Hive Radiator Valves",
                     Description = "Set the perfect temperature in every room with smart radiator valves. Then save energy and money by never heating an empty room again.",
                     Price = 59,
@@ -68,8 +68,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 5,
-                    ProductCategoryId = 1,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     ProductName = "Hive Thermostat Frame",
                     Description = "With a Hive Thermostat Frame your thermostat blends perfectly into your home, with colours matched to the Dulux™ signature colour range.",
                     Price = 500,
@@ -78,8 +78,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 6,
-                    ProductCategoryId = 1,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("7d6f45c8-a818-4336-8040-ea762e5c7990"),
                     ProductName = "Hive Thermostat Stand",
                     Description = "Specifically designed for both the Hive Thermostat and Hive Thermostat Mini, our premium stand keeps your smart thermostat secure – wherever you choose to put it.",
                     Price = 29,
@@ -88,8 +88,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 7,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "E27 B22 Smart Light Bulb",
                     Description = "Control these E27  B22 smart light bulbs from your Hive app or with your voice. Tap them on or off, adjust the brightness in a swipe and save energy using schedules. You can even use our smart sensors to turn them on automatically when you open the door or walk into the room.",
                     Price = 19,
@@ -98,8 +98,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 8,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "GU10 Smart Light Bulb",
                     Description = "Control these GU10 spotlight bulbs from your Hive app or with your voice. Tap them on or off, adjust the brightness in a swipe and save energy using schedules. You can even use our smart sensors to turn them on automatically when you open the door or walk into the room.",
                     Price = 14,
@@ -108,8 +108,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 9,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "E14 Smart Light Bulb",
                     Description = "Control these E14 candlelight bulbs from your Hive app or with your voice. Tap them on or off, adjust the brightness in a swipe and save energy using schedules. You can even use our smart sensors to turn them on automatically when you open the door or walk into the room.",
                     Price = 19,
@@ -118,8 +118,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 10,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive Motion Sensor",
                     Description = "Our Hive Motion Sensors let you know everything’s okay back home so you can relax wherever you are. Check if there’s been motion at home and get notifications the moment anything happens. Connect it with other Hive devices for even smarter control of your home. Like turning on a hall light when someone walks past.",
                     Price = 29,
@@ -128,8 +128,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 11,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive Motion Sensors",
                     Description = "Save on wasted energy and create a fully automated home with Hive Motion Sensors. Connect them to your smart lights, plugs and more to get them working seamlessly around you.",
                     Price = 29,
@@ -138,8 +138,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 12,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive Window or Door Sensor",
                     Description = "Our Hive Window or Door Sensor is a smart sensor that lets you know everything’s okay at home. Check on our app to see if windows or doors are open or closed and get notifications if anything changes.Connect it with other Hive devices for even smarter control of your home. Like turning the heating off automatically if a window is opened.",
                     Price = 29,
@@ -148,8 +148,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 13,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive Plug",
                     Description = "Monitor power-hungry appliances and only ever use the energy you need with a Hive Plug. Simply connect it like a normal adaptor and transform any device in seconds.",
                     Price = 39,
@@ -158,8 +158,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 14,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive Hub",
                     Description = "Our essential Hive Hub is the brains of your smart home. It connects all your devices to the internet – and to each other. So you can control everything straight from your smartphone.",
                     Price = 60,
@@ -168,8 +168,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 15,
-                    ProductCategoryId = 2,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive Signal Booster",
                     Description = "Our Hive Signal Booster makes sure you can connect your Hive devices to your hub wherever they are. It's ideal if you've got a big house or Hive devices in your basement and loft.",
                     Price = 29,
@@ -178,8 +178,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 16,
-                    ProductCategoryId = 3,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("02ddad74-fd36-4fd5-abef-112beebc92d5"),
                     ProductName = "Hive EV Charging with EO Mini Pro 3",
                     Description = "One of the smallest home EV chargers around, yet powerful enough to fully charge the average EV battery from empty in under eight hours, the EO Mini Pro 3 is packed with in-built safety features. And with its sleek matte black finish, it certainly makes a style statement.",
                     Price = 1199,
@@ -188,8 +188,8 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Product
                 {
-                    ProductId= 17,
-                    ProductCategoryId = 3,
+                    ProductId= Guid.NewGuid(),
+                    ProductCategoryId = Guid.Parse("1745e8de-2eac-4ccb-b954-1d00435fe66c"),
                     ProductName = "Hive EV Charging with Alfen Eve S-Line",
                     Description = "With safety and reliability at the heart of its design, the Alfen Eve Single S-Line is housed in a weatherproof white casing. Able to fully charge an average battery from empty in under eight hours, it always has the latest features thanks to automatic over-the-air updates.",
                     Price = 29,
