@@ -10,7 +10,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
         {
             entity.ToTable(nameof(Address));
 
-            entity.Property(d => d.Id).HasColumnOrder(1);
+            entity.Property(d => d.AddressId).HasColumnOrder(1);
             entity.Property(d => d.Street).HasColumnOrder(3).HasColumnType("varchar(50)");
             entity.Property(d => d.City).HasColumnOrder(4);
             entity.Property(d => d.PostalCode).HasColumnOrder(5);
@@ -25,7 +25,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             {
                 new Address
                 {
-                       Id = Guid.Parse("8a58c5f6-e9cb-4066-951d-f74a4d5c88d1"),
+                       AddressId = Guid.Parse("8a58c5f6-e9cb-4066-951d-f74a4d5c88d1"),
                        City = "Kavadarci",
                        Country = "Macedonia",
                        PostalCode = "1430",
@@ -34,7 +34,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
                 },
                 new Address
                 {
-                       Id = Guid.Parse("d3db2f0c-19ee-4fb3-9ac4-475e2be5e47c"),
+                       AddressId = Guid.Parse("d3db2f0c-19ee-4fb3-9ac4-475e2be5e47c"),
                        City = "Skopje",
                        Country = "Macedonia",
                        PostalCode = "1000",

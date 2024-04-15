@@ -33,7 +33,7 @@ namespace Shop.Api.Controllers
             ApplicationUser currentUser = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);
             var user = currentUser == null ? Guid.Empty.ToString() : currentUser.Id;
 
-            return await _addressService.GetAllByUserId("9c860138-12e2-4110-9855-c0fb9df53041");
+            return await _addressService.GetAllByUserId("a353673a-9586-42e1-8921-7413f50fd650");
         }
     }
 }

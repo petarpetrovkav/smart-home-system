@@ -26,7 +26,7 @@ namespace Shop.Api.Controllers
         {
             /* ApplicationUser currentUser = await _userManager.FindByNameAsync(User.Claims?.FirstOrDefault()?.Value);*/
             /* string user = currentUser == null ? Guid.Empty.ToString() : currentUser.Id;*/
-            string user = "f171b554-c344-4233-8a6a-43f4ce5f2197";
+            string user = "a353673a-9586-42e1-8921-7413f50fd650";
             return await _orderService.Add(orderModel, user);
         }
     }

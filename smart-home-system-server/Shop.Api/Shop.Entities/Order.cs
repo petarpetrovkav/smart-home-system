@@ -1,13 +1,15 @@
 ﻿namespace Shop.Entities;
 
-public class Order : BaseEntity
+public class Order
 {
-   /* public Guid OrderId { get; set; }*/
+    public Guid OrderId { get; set; }
     public Guid AddressId { get; set; }
     public string? PaymentMethod { get; set; }
     public OrderStatus OrderStatus { get; set; }     //varchar 20
     public DateTime OrderDate { get; set; }
     public int TotalCost { get; set; }
+    public string UserId { get; set; }
+    public ApplicationUser? User { get; set; }
     public virtual Address? Addresses { get; set; }
     public virtual ICollection<OrderItem>? OrderItems { get; set; }
 }

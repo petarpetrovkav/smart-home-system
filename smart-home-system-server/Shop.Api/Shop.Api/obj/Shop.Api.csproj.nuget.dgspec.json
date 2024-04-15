@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj": {}
+    "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj": {
+    "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj",
+        "projectUniqueName": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj",
         "projectName": "Shop.Api",
-        "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Api\\obj\\",
+        "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Api\\Shop.Api.csproj",
+        "packagesPath": "C:\\Users\\petro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\petro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj"
+              "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj"
               }
             }
           }
@@ -42,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -96,25 +97,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj": {
+    "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj",
+        "projectUniqueName": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj",
         "projectName": "Shop.Application",
-        "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Application\\obj\\",
+        "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj",
+        "packagesPath": "C:\\Users\\petro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\petro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,8 +125,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj"
+              "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj": {
+                "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj"
               }
             }
           }
@@ -138,6 +135,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -169,25 +171,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj": {
+    "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj",
         "projectName": "Shop.Entities",
-        "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\obj\\",
+        "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj",
+        "packagesPath": "C:\\Users\\petro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\petro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -207,6 +205,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -234,25 +237,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
+    "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
         "projectName": "Shop.Infrastructure",
-        "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\petro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\petro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -266,11 +265,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj"
+              "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj": {
+                "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Application\\Shop.Application.csproj"
               },
-              "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\WorkSpace\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj"
+              "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj": {
+                "projectPath": "C:\\Users\\petro\\Desktop\\WorkSpace\\Academy\\FinallyProjectAcademy\\smart-home-system-server\\Shop.Api\\Shop.Entities\\Shop.Entities.csproj"
               }
             }
           }
@@ -279,6 +278,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -316,7 +320,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

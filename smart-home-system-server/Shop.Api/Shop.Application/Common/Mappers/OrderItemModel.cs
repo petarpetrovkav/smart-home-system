@@ -23,7 +23,7 @@ public static class OrderItemModel
         {
             TotalCost = totalCost,
             PaymentMethod = "Test",
-            OrderStatus = OrderStatus.Pending,
+            OrderStatus = OrderStatus.Processing,
             AddressId = address,
             UserId = user,
             OrderDate = DateTime.Now,

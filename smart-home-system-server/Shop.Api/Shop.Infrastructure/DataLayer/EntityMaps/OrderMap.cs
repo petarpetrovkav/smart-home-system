@@ -10,7 +10,7 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
         {
             entity.ToTable(nameof(Order));
 
-            entity.Property(d => d.Id).HasColumnOrder(1);
+            entity.Property(d => d.OrderId).HasColumnOrder(1);
             entity.Property(d => d.AddressId).HasColumnOrder(3);
             entity.Property(d => d.PaymentMethod).HasColumnOrder(4).HasMaxLength(20);
 
@@ -20,29 +20,29 @@ namespace Shop.Infrastructure.DataLayer.EntityMaps
             entity.Property(d => d.OrderDate).HasColumnOrder(6).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("(GetDate())");
             entity.Property(d => d.TotalCost).HasColumnOrder(7);
 
-    /*        Order[] orders = new Order[]
+            Order[] orders = new Order[]
             {
                 new Order
                 {
-                    OrderId = 1,
-                    AddressId = 1,
+                    OrderId = Guid.Parse("4b55da49-e4fd-4744-8e99-34e290673dd9"),
+                    AddressId = Guid.Parse("D3DB2F0C-19EE-4FB3-9AC4-475E2BE5E47C"),
                     PaymentMethod = "test",
                     OrderStatus = OrderStatus.Pending,
                     TotalCost = 160,
-                    UserId = Guid.Parse("0a02b5f0-9916-4774-915e-b8e2c8c6bed8")
+                    UserId = "392e10a6-af25-47bc-a99b-eb73a2f81b65",
                 },
-                new Order
+  /*              new Order
                 {
-                    OrderId = 2,
-                    AddressId = 2,
+                    OrderId = Guid.NewGuid(),
+                    AddressId = Guid.Parse("D3DB2F0C-19EE-4FB3-9AC4-475E2BE5E47C"),
                     PaymentMethod = "test",
                     OrderStatus = OrderStatus.Processing,
                     TotalCost = 1500,
-                    UserId = Guid.Parse("0a02b5f0-9916-4774-915e-b8e2c8c6bed8")
-                },
+                    UserId = "0a02b5f0-9916-4774-915e-b8e2c8c6bed8",
+                },*/
             };
 
-            entity.HasData(orders);*/
+            entity.HasData(orders);
         }
     }
 }

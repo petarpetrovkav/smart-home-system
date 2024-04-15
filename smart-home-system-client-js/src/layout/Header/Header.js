@@ -1,20 +1,19 @@
-import React, {useRef, useState} from "react";
-import {Link} from "react-router-dom";
+import React, {useContext, useRef, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import './Header.scss'
 import logo from './../../assets/images/6dy5Sp-LogoMakr.png';
 import cartIcon from './../../assets/images/cart_icon.png';
-import loginIcon from './../../assets/images/icons8-login-50.png';
-import nav_dropdown from './../../assets/images/nav_dropdown.png'
+import {ShopContext} from "../../context/ShopContext";
 
 export default function Header() {
-
-   /* const menuRef = useRef();*/
+    const navigate = useNavigate();
     const [menu,setMenu] = useState("home");
+    const {getTotalCartItems} = useContext(ShopContext);
 
-/*    const dropdown_toggle = (e) =>{
-        menuRef.current.classList.toggle('nav-menu-visible');
-        e.target.classList.toggle('open');
-    }*/
+    const logout = () =>{
+        localStorage.removeItem('auth-token');
+        navigate("/");
+    }
 
     return (
         <>
@@ -36,9 +35,13 @@ export default function Header() {
                         </li>
                     </ul>
                     <div className='nav-login-cart'>
-                        <Link to='/register-login' onClick={()=>{setMenu("")}}> <img src={loginIcon} alt="login"/>  </Link>
+                        {
+                            localStorage.getItem('auth-token') ? <button onClick={logout}>Logout</button>
+                                : <Link to='/register-login'> <button>Login</button> </Link>
+                        }
+                  {/*      <Link to='/register-login' onClick={()=>{setMenu("")}}> <img src={loginIcon} alt="login"/>  </Link>*/}
                         <Link to='/card' onClick={()=>{setMenu("")}}> <img src={cartIcon} alt="cart"/> </Link>
-                        <div className="nav-cart-count">0</div>
+                        <div className="nav-cart-count">{getTotalCartItems()}</div>
                     </div>
                 </div>
             </header>

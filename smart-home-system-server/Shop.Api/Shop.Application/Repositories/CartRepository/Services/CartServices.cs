@@ -51,7 +51,7 @@ public class CartServices : ICartService
             {
                 try
                 {
-                    CartItem item = _dbContext.CartItems.SingleOrDefault(ci => ci.ProductId == Guid.Parse(model.ProductId) && ci.ShoppingCartId == cart.Id);
+                    CartItem item = _dbContext.CartItems.SingleOrDefault(ci => ci.ProductId == Guid.Parse(model.ProductId) && ci.ShoppingCartId == cart.ShoppingCartId);
                     if (item is not null)
                     {
                         return new ResponseModel()
@@ -73,7 +73,7 @@ public class CartServices : ICartService
             }
            
 
-            _dbContext.CartItems.Add(CartItemModel.ToCartItem(model, (cart is not null) ? cart.Id : shoppingCart.Id));
+            _dbContext.CartItems.Add(CartItemModel.ToCartItem(model, (cart is not null) ? cart.ShoppingCartId : shoppingCart.ShoppingCartId));
             await _dbContext.SaveChangesAsync();
 
             return new ResponseModel()
@@ -160,12 +160,12 @@ public class CartServices : ICartService
         List<CartProductDto> productDto = new();
 
         if (cart is not null) { 
-            List<CartItem> cartItems = _dbContext.CartItems.Include(product => product.Product).Where(cartItem => cartItem.ShoppingCartId == cart.Id).ToList();
+            List<CartItem> cartItems = _dbContext.CartItems.Include(product => product.Product).Where(cartItem => cartItem.ShoppingCartId == cart.ShoppingCartId).ToList();
             List<CartItemDto> cartItemsDto = new();
        
             foreach (CartItem cartItem in cartItems)
             {
-                CartProductDto cartProductDto = ProductModel.ToCartProductDto(cartItem.Product, cartItem.Quantity, cart.Id);          
+                CartProductDto cartProductDto = ProductModel.ToCartProductDto(cartItem.Product, cartItem.Quantity, cart.ShoppingCartId);          
                 productDto.Add(cartProductDto);
             }
             return productDto;

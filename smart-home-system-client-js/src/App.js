@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import {Card, Home, NotFound, Order, Product, Products, Login, Contact} from './pages'
 import Main from './layout/Main'
 

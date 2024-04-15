@@ -28,13 +28,13 @@ public class OrderService : IOrderService
 
         try
         {
-            Order order = OrderItemModel.ToOrder(model.TotalCost, address.Id, user);
+            Order order = OrderItemModel.ToOrder(model.TotalCost, address.AddressId, user);
             _dbContext.Orders.Add(order);
             await _dbContext.SaveChangesAsync();
             return new ResponseModel()
             {
                 isValid = true,
-                ResponseMessage = order.Id.ToString()
+                ResponseMessage = order.OrderId.ToString()
             };
         }
         catch (Exception ex)

@@ -1,45 +1,96 @@
 import './RegisterLogin.scss'
-import {NavLink} from "react-router-dom";
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import RegisterLoginService from "../../services/registerlogin";
+import validateForm from "../../utils/validateForm";
+
+export default function RegisterLogin() {
 
 const [state, setState] = useState("Login");
-const[formData, setFormData] = useState({
-    username:"",
-    password:"",
-    country:"",
-    email:"",
-    confirmPassword:"",
-    firstName:"",
-    lastName:""
-})
+const [formData, setFormData] = useState({ username:"", password:"", country:"", email:"", confirmPassword:"", firstName:"", lastName:"" })
+const [errors, setErrors] = useState({ username: "", password:"", country:"", email:"", confirmPassword:"", firstName:"", lastName:""  });
+const [success, setSuccess] = useState("");
+const navigate = useNavigate();
 
 const changeHandler = (e) => {
-    setFormData({...formData,[e.target.name]:e.target.value})
+    const { name, value } = e.target;
+    setFormData({...formData,[name]:value});
+
+    if(state !== "Login"){
+        const error = validateForm(name, value, formData.password);
+        setFormData({ ...formData, [name]:value});
+        setErrors({ ...errors, [name]: error });
+    }
 }
 
 const login = async () => {
+    const responseData = await RegisterLoginService.login(formData);
 
+   if(responseData){
+        localStorage.setItem('auth-token',responseData);
+        navigate("/");
+    }
+    else{
+        alert("ERROR");
+    }
 }
 
 const signup = async () => {
-
+    if(formData.username !== "" && formData.email !== "" && formData.password !== "" && formData.firstName !== "" && formData.lastName !== "" &&  formData.confirmPassword !== "" &&
+        errors.username === "" && errors.email === "" && errors.password === "" && errors.firstName === "" && errors.lastName === "" && errors.confirmPassword === ""){
+        const response = await RegisterLoginService.register(formData);
+        response === "Username exist!" && setErrors({ ...errors, ["username"]: response });
+        response === "Email exist!" && setErrors({ ...errors, ["email"]: response });
+        response === "You have successfully registered" && (redirectToLogin(response));
+    }
 }
 
-export default function RegisterLogin() {
+const redirectToLogin = (response) =>{
+    setSuccess(response);
+    setState("Login");
+}
+
+
     return (
 
             <div id="login">
                 <div className="login-signup">
                     <div className="login-signup-container">
-                        <h1>Sign Up</h1>
+                        <h1>{state}</h1>
                         <div className="login-signup-fields">
-                            <input type="text" placeholder='Your Name'/>
-                            <input type="email" placeholder='Email Address'/>
-                            <input type="password" placeholder='Password'/>
+                            <input type="text" name='username' id='username' value={formData.username} onChange={changeHandler} placeholder='Your Name'/>
+                            {errors.username && <span className="error">{errors.username}</span>}
+
+                            {state === "Sign up" ?
+                                <input type="text" name='firstName' id='firstName' value={formData.firstName} onChange={changeHandler} placeholder='First Name'/> : <></> }
+                            {errors.firstName && <span className="error">{errors.firstName}</span>}
+
+                            {state === "Sign up" ?
+                                <input type="text" name='lastName' id='lastName' value={formData.lastName} onChange={changeHandler} placeholder='Last Name'/> : <></> }
+                            {errors.lastName && <span className="error">{errors.lastName}</span>}
+
+                            {state === "Sign up" ? <input type="email" name='email' id='email' value={formData.email} onChange={changeHandler} placeholder='Email Address'/> : <></> }
+                            {errors.email && <span className="error">{errors.email}</span>}
+
+                            <input type="password" name='password' id='password' value={formData.password} onChange={changeHandler} placeholder='Password'/>
+                            {errors.password && <span className="error">{errors.password}</span>}
+
+                            {state === "Sign up" ?
+                                <input type="password" name='confirmPassword' id='confirmPassword' value={formData.confirmPassword}
+                                       onChange={changeHandler} placeholder='Confirm Password'/>  : <></> }
+                            {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+
+                            {state === "Sign up" ?
+                                <input type="text" name='country' value={formData.country} onChange={changeHandler} placeholder='Country'/> : <></> }
+
                         </div>
-                        <button>Continue</button>
-                        <p className="login-signup-login">Already have an account?<span>Login here</span></p>
+                        {success && <span className="success">{success}</span>}
+                        <button onClick={()=>{state==="Login"?login():signup()}}>Continue</button>
+
+                        {state==="Sign up"
+                            ? <p className="login-signup-login">Already have an account?<span onClick={()=>{setState("Login")}}>Login here</span></p>
+                            : <p className="login-signup-login">Create an account?<span onClick={()=>{setState("Sign up")}}>Click here</span></p>
+                        }
                     </div>
                 </div>
             </div>
