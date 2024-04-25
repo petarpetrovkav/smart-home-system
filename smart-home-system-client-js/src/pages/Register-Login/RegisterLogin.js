@@ -6,7 +6,7 @@ import validateForm from "../../utils/validateForm";
 
 export default function RegisterLogin() {
 
-const [state, setState] = useState("Login");
+const [state, setState] = useState(true);
 const [formData, setFormData] = useState({ username:"", password:"", country:"", email:"", confirmPassword:"", firstName:"", lastName:"" })
 const [errors, setErrors] = useState({ username: "", password:"", country:"", email:"", confirmPassword:"", firstName:"", lastName:""  });
 const [success, setSuccess] = useState("");
@@ -16,22 +16,39 @@ const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormData({...formData,[name]:value});
 
-    if(state !== "Login"){
+    if(state !== true){
         const error = validateForm(name, value, formData.password);
         setFormData({ ...formData, [name]:value});
         setErrors({ ...errors, [name]: error });
     }
 }
 
+const resetFields = () => {
+    setFormData(prevState => ({
+                ...prevState,
+                username: "",
+                password: "",
+                country: "",
+                email: "",
+                confirmPassword: "",
+                firstName: "",
+                lastName: ""
+    }));
+}
+
 const login = async () => {
     const responseData = await RegisterLoginService.login(formData);
 
-   if(responseData){
-        localStorage.setItem('auth-token',responseData);
+   if(responseData.title !== 'Bad Request'){
+        console.log(`TOKEN: ${responseData.token} and username: ${responseData.username}`);
+        localStorage.setItem("auth-token",responseData.token);
+        localStorage.setItem("username",responseData.username);
         navigate("/");
     }
     else{
-        alert("ERROR");
+        setState(false);
+        resetFields();
+        navigate("/register-login");
     }
 }
 
@@ -47,7 +64,8 @@ const signup = async () => {
 
 const redirectToLogin = (response) =>{
     setSuccess(response);
-    setState("Login");
+    resetFields();
+    setState(true);
 }
 
 
@@ -61,35 +79,35 @@ const redirectToLogin = (response) =>{
                             <input type="text" name='username' id='username' value={formData.username} onChange={changeHandler} placeholder='Your Name'/>
                             {errors.username && <span className="error">{errors.username}</span>}
 
-                            {state === "Sign up" ?
+                            {state === false ?
                                 <input type="text" name='firstName' id='firstName' value={formData.firstName} onChange={changeHandler} placeholder='First Name'/> : <></> }
                             {errors.firstName && <span className="error">{errors.firstName}</span>}
 
-                            {state === "Sign up" ?
+                            {state === false ?
                                 <input type="text" name='lastName' id='lastName' value={formData.lastName} onChange={changeHandler} placeholder='Last Name'/> : <></> }
                             {errors.lastName && <span className="error">{errors.lastName}</span>}
 
-                            {state === "Sign up" ? <input type="email" name='email' id='email' value={formData.email} onChange={changeHandler} placeholder='Email Address'/> : <></> }
+                            {state === false ? <input type="email" name='email' id='email' value={formData.email} onChange={changeHandler} placeholder='Email Address'/> : <></> }
                             {errors.email && <span className="error">{errors.email}</span>}
 
                             <input type="password" name='password' id='password' value={formData.password} onChange={changeHandler} placeholder='Password'/>
                             {errors.password && <span className="error">{errors.password}</span>}
 
-                            {state === "Sign up" ?
+                            {state === false ?
                                 <input type="password" name='confirmPassword' id='confirmPassword' value={formData.confirmPassword}
                                        onChange={changeHandler} placeholder='Confirm Password'/>  : <></> }
                             {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
 
-                            {state === "Sign up" ?
+                            {state === false ?
                                 <input type="text" name='country' value={formData.country} onChange={changeHandler} placeholder='Country'/> : <></> }
 
                         </div>
                         {success && <span className="success">{success}</span>}
-                        <button onClick={()=>{state==="Login"?login():signup()}}>Continue</button>
+                        <button onClick={()=>{state===true?login():signup()}}>Continue</button>
 
-                        {state==="Sign up"
-                            ? <p className="login-signup-login">Already have an account?<span onClick={()=>{setState("Login")}}>Login here</span></p>
-                            : <p className="login-signup-login">Create an account?<span onClick={()=>{setState("Sign up")}}>Click here</span></p>
+                        {state===false
+                            ? <p className="login-signup-login">Already have an account?<span onClick={()=>{setState(true)}}>Login here</span></p>
+                            : <p className="login-signup-login">Create an account?<span onClick={()=>{setState(false)}}>Click here</span></p>
                         }
                     </div>
                 </div>

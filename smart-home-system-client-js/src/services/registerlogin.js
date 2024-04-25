@@ -22,9 +22,7 @@ const register = async(formData) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(formData),
-    }).then((response)=> console.log(response))
-        .then((response)=> responseData=response.json())
-        .catch((error) => responseData = error);
+    }).then((response)=> response.json()).then((data)=>responseData=data).catch((error) => responseData=error);
     return responseData;
 }
 

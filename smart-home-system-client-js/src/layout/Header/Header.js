@@ -12,6 +12,7 @@ export default function Header() {
 
     const logout = () =>{
         localStorage.removeItem('auth-token');
+        localStorage.removeItem('username');
         navigate("/");
     }
 
