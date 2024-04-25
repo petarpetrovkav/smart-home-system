@@ -8,7 +8,7 @@
 
   .cart-items hr{
     height: 3px;
-    background: #e2e2e2;
+    background: $platinum;
     border: 0;
   }
 
@@ -18,7 +18,7 @@
     align-items: center;
     gap: 75px;
     padding: 20px 0;
-    color: #454545;
+    color: $dim-gray;
     font-size: 18px;
     font-weight: 600;
   }
@@ -41,8 +41,8 @@
   .cart-items-quantity{
     width: 64px;
     height: 50px;
-    border: 2px solid #ebebeb;
-    background: #fff;
+    border: 2px solid $light-silver;
+    background: $white;
   }
 
   .cart-items-down{
@@ -69,8 +69,8 @@
     height: 58px;
     outline: none;
     border: none;
-    background: #ff5a5a;
-    color: #fff;
+    background: $coral-red;
+    color: $white;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -83,7 +83,7 @@
   }
 
   .cart-item-promo-code p{
-    color: #555;
+    color: $cart-item-promo-code-p;
   }
 
   .cart-item-promo-box{
@@ -91,7 +91,7 @@
     margin-top: 15px;
     padding-left: 20px;
     height: 58px;
-    background: #eaeaea;
+    background: $gainsboro;
   }
   .cart-item-promo-box input{
     border: none;
@@ -106,8 +106,8 @@
     width: 170px;
     height: 58px;
     font-size: 16px;
-    background: black;
-    color: white;
+    background: $black;
+    color: $white;
     cursor: pointer;
   }
 

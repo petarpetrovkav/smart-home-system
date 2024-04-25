@@ -5,7 +5,7 @@ header{
   top: 0;
   z-index: 1020;
   opacity: 0.96;
-  background-color: #fbfbfb;
+  background-color: $pearl-gray;
 
 
   .navbar{
@@ -24,7 +24,7 @@ header{
     align-items: center;
     list-style: none;
     gap: 50px;
-    color: #626262;
+    color: $steel-gray;
     font-size: 20px;
     font-weight: 500;
   }
@@ -73,7 +73,7 @@ header{
     border-radius: 11px;
     font-size: 14px;
     background: red;
-    color: white;
+    color: $white;
   }
 
   .nav-drop-down {
@@ -97,12 +97,12 @@ header{
     color: #515151;
     font-size: 18px;
     font-weight: 500;
-    background: white;
+    background: $white;
     cursor: pointer;
   }
 
   .nav-login-cart button:active{
-    background: #f3f3f3;
+    background: $light-gray;
   }
 
   @media (max-width: 1280px) {
@@ -178,7 +178,7 @@ header{
       height: 80px;
       width: 100%;
       position: absolute;
-      background-color: white;
+      background-color: $white;
       justify-content: center;
       top: 50px;
     }

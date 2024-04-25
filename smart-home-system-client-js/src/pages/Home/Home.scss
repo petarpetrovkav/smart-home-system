@@ -4,7 +4,7 @@
 
 .root {
   height: 60vh;
-  background: linear-gradient(180deg, #ededed, #e1ffea22 60%);
+  background: linear-gradient(180deg, $silver, $transparent-green 60%);
   display: flex;
 }
 
@@ -20,7 +20,7 @@
   }
 
   .home-left h2{
-    color: #090909;
+    color: $dark-gray;
     font-size: 36px;
     font-weight: 600;
     float: left;
@@ -29,7 +29,7 @@
   }
 
   .home-left p{
-    color: #171717;
+    color: $dark-slate;
     font-size: 16px;
     font-weight: 500;
     float: left;
@@ -45,8 +45,8 @@
     height: 60px;
     border-radius: 0.75rem;
     margin-top: 22px;
-    background: rgb(211, 34, 64);
-    color: white;
+    background: $reddish-pink;
+    color: $white;
     font-size: 20px;
     font-weight: 400;
   }

@@ -16,7 +16,7 @@
     min-height: 90vh;
   }
   .products h1{
-    color: #171717;
+    color: $dark-slate;
     font-size: 50px;
     font-weight: 600;
   }
@@ -24,7 +24,7 @@
     width: 200px;
     height: 6px;
     border-radius: 10px;
-    background: #252525;
+    background: $midnight-gray;
   }
   .collections{
     display: grid;
@@ -39,8 +39,8 @@
   }
   .category-container{
     padding: 10px 10px 6px;
-    background: #fbfbfb;
-    border: 1px solid #ebebeb;
+    background: $pearl-gray;
+    border: 1px solid $light-silver;
   }
 
 
