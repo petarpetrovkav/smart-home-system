@@ -47,7 +47,7 @@ header{
     width: 80%;
     height: 3px;
     border-radius: 10px;
-    background: #FF4141;
+    background: $red;
   }
 
   .nav-login-cart{
@@ -72,7 +72,7 @@ header{
     margin-left: -55px;
     border-radius: 11px;
     font-size: 14px;
-    background: red;
+    background: $red;
     color: $white;
   }
 
@@ -92,9 +92,9 @@ header{
     width: 137px;
     height: 44px;
     outline: none;
-    border: 1px solid #7a7a7a;
+    border: 1px solid $medium-gray;
     border-radius: 30px;
-    color: #515151;
+    color: $medium-gray-1;
     font-size: 18px;
     font-weight: 500;
     background: $white;
