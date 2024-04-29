@@ -4,6 +4,7 @@ import NewProduct from "../../components/NewProduct/NewProduct";
 import home_hero_feb_sale from '../../assets/images/home-hero-feb-sale.png'
 
 export default function Home() {
+
     return (
         <>
             <div className='home'>

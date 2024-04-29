@@ -1,22 +1,25 @@
-import React, {useEffect, useState} from "react";
 import './NewProduct.scss';
-import ProductService from "../../services/product";
-
 import Item from "../Item/Item";
+import React, {useEffect, useState} from "react";
+import ProductService from "../../services/product";
+import { useDispatch, useSelector } from 'react-redux';
+import { getAll } from '../../store/productsSlice.js';
+
 
 export default function NewProduct() {
 
-    const [products, setProducts] = useState([]);
+    const products = useSelector(state => state.products);
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
-        getProducts();
+        if(!products.length)
+            getProducts()
     }, []);
 
     const getProducts = async () => {
         const data = await ProductService.getAllProducts();
-        console.log(data);
-        setProducts(data);
+        dispatch(getAll(data));
     }
 
     return (

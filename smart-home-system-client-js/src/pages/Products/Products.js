@@ -6,19 +6,23 @@ import ev_charging_hover from '../../assets/images/home_img/ev-charging-hover.sv
 import Item from '../../components/Item/Item';
 import React, {useEffect, useRef, useState} from "react";
 import ProductService from "../../services/product";
+import { useDispatch, useSelector } from 'react-redux';
+import { getAll } from '../../store/productsSlice.js';
+import productsReducer from "../../store/productsSlice";
 
 
 export default function Products() {
-    const [products, setProducts] = useState([]);
- /*   const selectCategoryRef = useRef('');*/
+    const products = useSelector(state => state.products);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getProducts();
+        if(!products.length)
+           getProducts()
     }, []);
 
     const getProducts = async () => {
         const data = await ProductService.getAllProducts();
-        setProducts(data);
+        dispatch(getAll(data));
     }
 
     return (
