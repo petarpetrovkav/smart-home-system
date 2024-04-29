@@ -1,8 +1,13 @@
+import { lazy} from "react";
+
 export {default as Home} from './Home/Home';
-export {default as Card} from './Card/Card';
-export {default as NotFound} from './NotFound/NotFound';
-export {default as Order} from './Order/Order';
-export {default as Product} from './Product/Product';
-export {default as Products} from './Products/Products';
-export {default as Login} from './Register-Login/RegisterLogin';
-export {default as Contact} from './Contact/Contact';
+
+const Card = lazy(() => import('./Card/Card'));
+const NotFound = lazy(() => import('./NotFound/NotFound'));
+const Order = lazy(() => import('./Order/Order'));
+const Product = lazy(() => import('./Product/Product'));
+const Products = lazy(() => import('./Products/Products'));
+const Login = lazy(() => import('./Register-Login/RegisterLogin'));
+const Contact = lazy(() => import('./Contact/Contact'));
+
+export { Card, NotFound, Order, Product, Products, Login, Contact };

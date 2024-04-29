@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import {Card, Home, NotFound, Order, Product, Products, Login, Contact} from './pages';
@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route element={<Main/>}>
             <Route path='/' element={<Home/>}/>
@@ -22,6 +23,7 @@ function App() {
             <Route path='*' element={<NotFound/>}/>
           </Route>
         </Routes>
+        </Suspense>
       </Provider>
     </div>
   );
